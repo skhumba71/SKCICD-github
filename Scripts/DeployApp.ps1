@@ -1,0 +1,1 @@
+New-IISSite -Name 'SKCICD' -PhysicalPath 'c:\inetpub\wwwroot\SKCICD\' -BindingInformation "*:80:"

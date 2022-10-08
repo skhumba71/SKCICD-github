@@ -1,0 +1,1 @@
+Invoke-Command -ScriptBlock { & iisreset /stop }

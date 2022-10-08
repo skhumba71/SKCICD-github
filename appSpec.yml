@@ -1,0 +1,20 @@
+version: 0.0
+os: windows
+files:
+  - source: .\app
+    destination: c:\inetpub\wwwroot\SKCICD
+hooks:
+  ApplicationStop:
+    - location: Scripts/StopIIS.ps1
+      timeout: 60
+  BeforeInstall:
+    - location: Scripts/DotNetInstall.ps1
+      timeout: 3600
+    - location: Scripts/RemoveSite.ps1
+      timeout: 60
+  AfterInstall:
+    - location: Scripts/DeployApp.ps1
+      timeout: 3600
+  ApplicationStart:
+    - location: Scripts/StartIIS.ps1
+      timeout: 60
